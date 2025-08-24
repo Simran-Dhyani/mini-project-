@@ -7,28 +7,39 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Whack-a-Mole Game</h1>
-  <div id="scoreboard">Score: 0 | Time: 60</div>
-  <div class="grid">
-    <!-- 9 holes for example -->
-    <div class="hole" id="hole0"></div>
-    <div class="hole" id="hole1"></div>
-    <div class="hole" id="hole2"></div>
-    <div class="hole" id="hole3"></div>
-    <div class="hole" id="hole4"></div>
-    <div class="hole" id="hole5"></div>
-    <div class="hole" id="hole6"></div>
-    <div class="hole" id="hole7"></div>
-    <div class="hole" id="hole8"></div>
+  <div class="container">
+  <h1>🔨 Whack-a-Mole Game 🔨</h1>
+  <div class="game info">
+    <div class="score info">Score:<span id="score">0</span></div>
+    <div class="time info">Time:<span id="time">30 s</span></div>
+    <div class="lives info">Live:<span id="live">3</span></div>
+    <div></div> 
+  <div class="game-board" id="gameBoard">
+    <div class="hole" data-hole="0"><div class="mole"></div></div>
+    <div class="hole" data-hole="1"><div class="mole"></div></div>
+    <div class="hole" data-hole="2"><div class="mole"></div></div>
+    <div class="hole" data-hole="3"><div class="mole"></div></div>
+    <div class="hole" data-hole="4"><div class="mole"></div></div>
+    <div class="hole" data-hole="5"><div class="mole"></div></div>
+    <div class="hole" data-hole="6"><div class="mole"></div></div>
+    <div class="hole" data-hole="7"><div class="mole"></div></div>
+    <div class="hole" data-hole="8"><div class="mole"></div></div>
+</div>
+<div class="controls">
+    <button id="startBtn" onclick="startGame()">Start Game</button>
+    <div class="difficulty-selector">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+            <option value="easy" selected>Easy</option>
+            <option value="medium" >Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+</div>
   </div>
 
-  <!-- Trivia popup -->
-  <div id="trivia-popup" class="hidden">
-    <p id="trivia-question"></p>
-    <div id="trivia-answers"></div>
-    <button id="close-trivia">Close</button>
-  </div>
+  
 
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
