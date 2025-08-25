@@ -9,11 +9,11 @@
 <body>
   <div class="container">
   <h1>🔨 Whack-a-Mole Game 🔨</h1>
-  <div class="game info">
+  <div class="game-info">
     <div class="score info">Score:<span id="score">0</span></div>
     <div class="time info">Time:<span id="time">30 s</span></div>
     <div class="lives info">Live:<span id="live">3</span></div>
-    <div></div> 
+  </div> 
   <div class="game-board" id="gameBoard">
     <div class="hole" data-hole="0"><div class="mole"></div></div>
     <div class="hole" data-hole="1"><div class="mole"></div></div>
@@ -24,19 +24,19 @@
     <div class="hole" data-hole="6"><div class="mole"></div></div>
     <div class="hole" data-hole="7"><div class="mole"></div></div>
     <div class="hole" data-hole="8"><div class="mole"></div></div>
-</div>
-<div class="controls">
-    <button id="startBtn" onclick="startGame()">Start Game</button>
+  </div>
+   <div class="controls">
+    <button id="startBtn" onclick="startGame()">START GAME</button>
     <div class="difficulty-selector">
-        <label for="difficulty">Difficulty:</label>
+        <label for="difficulty" id="diff">Difficulty:</label>
         <select id="difficulty">
             <option value="easy" selected>Easy</option>
             <option value="medium" >Medium</option>
             <option value="hard">Hard</option>
         </select>
     </div>
+   </div>
 </div>
-  </div>
 
   
 
