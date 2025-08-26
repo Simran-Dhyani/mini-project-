@@ -22,7 +22,7 @@
             
             font-weight: 800;
             background: linear-gradient(135deg, #b566ea, #4b75a2);
-            -webkit-background-clip: text; 
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent; 
             text-align: center;
             cursor:pointer;
