@@ -27,16 +27,18 @@
             text-align: center;
             cursor:pointer;
            }
+           
 
-        .game-info {
+       .game-info {
             display: flex;
             justify-content: space-around;
             margin-bottom: 30px;
             gap: 10px;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             cursor: pointer;
+            
         }
-
+        
 
         .game-board {
             display: grid;
@@ -121,7 +123,7 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background:  linear-gradient(135deg, #b566ea, #4b75a2);
             color: white;
            
             
@@ -131,8 +133,8 @@
         button:hover {
             transform:scale(1.05);
               box-shadow: 0 12px 20px rgba(0,0,0,0.5);
-            border-color: #feca57;
-            background: linear-gradient(45deg, #feca57, #ff6b6b);
+            border-color: #d4ea66;
+            background:linear-gradient(135deg,#4b75a2 ,#b566ea );
         }
 
         button:active {
