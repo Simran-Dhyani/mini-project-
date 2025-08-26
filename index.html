@@ -12,7 +12,7 @@
   <div class="game-info">
     <div class="score info">Score:<span id="score">0</span></div>
     <div class="time info">Time:<span id="time">30 s</span></div>
-    <div class="lives info">Live:<span id="live">3</span></div>
+    <div class="lives info">Lives:<span id="lives">3</span></div>
   </div> 
   <div class="game-board" id="gameBoard">
     <div class="hole" data-hole="0"><div class="mole"></div></div>
@@ -38,6 +38,13 @@
    </div>
 </div>
 
+<div class="game-over" id="gameOver">
+        <div class="game-over-content">
+            <h2>Game Over!</h2>
+            <p id="finalScore">Your final score is: 0</p>
+            <button onclick="closeGameOver()">Play Again</button>
+        </div>
+    </div>
   
 
   <script src="index.js"></script>
