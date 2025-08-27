@@ -3,6 +3,8 @@ let time=30;
 let lives=3;
 let isGameActive=false;
 let countdown;
+let currentMole=null;
+let moleTimeOut;
 
  const scoreElement = document.getElementById('score');
  const timeElement = document.getElementById('time');
@@ -12,6 +14,11 @@ let countdown;
  const moles = document.querySelectorAll('.mole');
  const gameOverModal = document.getElementById('gameOver');
  const finalScoreElement = document.getElementById('finalScore');
+ const difficulties={
+    easy:{interval:1000,duration:1500},
+    medium:{interval:800,duration:1200},
+    hard:{interval:600,duration:1000}
+ }
  
 function StartGame(){
     if(isGameActive==true) return ;
@@ -21,11 +28,94 @@ function StartGame(){
         lives=3;
         startBtn.textContent="Game Running";
         startBtn.disabled=true;
-         countdown=setInterval(() => {
+      countdown=setInterval(() => {
             time-=1;
             timeElement.textContent=time;
-            if(time<0)
-                EndGame();
+            if(time<=0)
+                endGame();
         },1000);
-        popupMole();
+        popUpMole();
 }
+function popUpMole(){
+     if(isGameActive==false) return;
+     if(currentMole)
+        currentMole.classList.remove('show');
+     const randomHole= Math.floor(Math.random()*holes.length);
+     const mole=holes[randomHole].querySelector('.mole');
+     currentMole=mole;
+     mole.classList.add('show');
+     mole.classList.remove('hit');
+     const difficulty = difficulties[document.getElementById('difficulty').value];
+
+     moleTimeOut = setTimeout(() => {
+     if (mole.classList.contains('show') && !mole.classList.contains('hit')) {
+         mole.classList.remove('show');
+         lives--;
+         livesElement.textContent = lives;
+
+        if (lives <= 0) {
+            endGame();
+            return;  
+        }
+    }
+
+    
+    setTimeout(() => popUpMole(), difficulty.interval);
+}, difficulty.duration);
+
+}
+
+function hitMole(mole){
+        if (!isGameActive || !mole.classList.contains('show') || mole.classList.contains('hit'))
+            return;
+
+        mole.classList.add('hit');
+        score+=10;
+        scoreElement.textContent=score;
+        setTimeout(() => {
+                mole.classList.remove('show', 'hit');
+            }, 300);
+     }
+    
+ function endGame() {
+            isGameActive = false;
+             clearInterval(countdown); 
+             clearTimeout(moleTimeOut);
+            moles.forEach(mole => {
+                mole.classList.remove('show', 'hit');
+            });
+            
+            startBtn.textContent = 'Start Game';
+            startBtn.disabled = false;
+            
+            finalScoreElement.textContent = `Your final score: ${score}`;
+            gameOverModal.style.display = 'flex';
+        }
+
+function closeGameOver() {
+            gameOverModal.style.display = 'none';
+        }
+
+function updateDisplay() {
+            scoreElement.textContent = score;
+            timeElement.textContent = time;
+            livesElement.textContent = lives;
+        }
+
+        
+ moles.forEach(mole => {
+            mole.addEventListener('click', () => hitMole(mole));
+     });
+
+startBtn.addEventListener('click', () => StartGame());
+
+        
+ document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && !isGameActive) {
+                e.preventDefault();
+                StartGame();
+            }
+    });
+
+
+    
