@@ -5,7 +5,7 @@ A fun and interactive Whack-a-Mole game built with *HTML, CSS, and JavaScript*. 
 ---
 
 ## 🔗 Live Demo
-Play the game here: [Whack-a-Mole Live](https://your-username.github.io/mini-project-/)
+Play the game here: https://simran-dhyani.github.io/mini-project-/
 
 ---
 
