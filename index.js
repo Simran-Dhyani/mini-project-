@@ -15,17 +15,35 @@ let moleTimeOut;
  const gameOverModal = document.getElementById('gameOver');
  const finalScoreElement = document.getElementById('finalScore');
  const difficulties={
-    easy:{interval:1000,duration:1500},
-    medium:{interval:800,duration:1200},
-    hard:{interval:600,duration:1000}
+    easy:{interval:1000,duration:2000},
+    medium:{interval:600,duration:1000},
+    hard:{interval:200,duration:800}
  }
+ const stSound=new Audio('sounds/start-music.mp3');
+ stSound.loop=true;
+ const overSound=new Audio('sounds/game-over.mp3');
+  
  
-function StartGame(){
+
+
+
+
+ 
+function StartGame(triggeredByUser=true){
     if(isGameActive==true) return ;
         isGameActive=true;
         score=0;
         time=30;
         lives=3;
+        livesElement.textContent = lives;
+        scoreElement.textContent = score;
+        timeElement.textContent = time;
+        if(triggeredByUser){
+        stSound.currentTime = 0;
+        stSound.play().catch(e => console.log("Audio play error:", e));
+    }
+
+
         startBtn.textContent="Game Running";
         startBtn.disabled=true;
       countdown=setInterval(() => {
@@ -90,6 +108,9 @@ function hitMole(mole){
             
             finalScoreElement.textContent = `Your final score: ${score}`;
             gameOverModal.style.display = 'flex';
+             stSound.pause();
+            overSound.currentTime = 0;
+            overSound.play().catch(e => console.log("Game over sound error:", e));
         }
 
 function closeGameOver() {
@@ -107,13 +128,13 @@ function updateDisplay() {
             mole.addEventListener('click', () => hitMole(mole));
      });
 
-startBtn.addEventListener('click', () => StartGame());
+startBtn.addEventListener('click', () => StartGame(true));
 
         
  document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' && !isGameActive) {
                 e.preventDefault();
-                StartGame();
+                StartGame(true);
             }
     });
 
