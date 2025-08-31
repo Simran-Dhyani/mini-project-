@@ -13,6 +13,10 @@ Play the game here: https://simran-dhyani.github.io/mini-project-/
 - Multiple difficulty levels: *Easy, Medium, Hard*
 - Timer and *lives system*
 - Real-time *score tracking*
+- Three selectable themes with different backgrounds
+- Background music during gameplay
+- Click sound effect when hitting a mole
+- Game over sound when the game ends
 - Interactive moles with smooth *animations*
 - Responsive design: works on desktop and mobile
 - Keyboard support: press *Spacebar* to start the game
@@ -20,10 +24,11 @@ Play the game here: https://simran-dhyani.github.io/mini-project-/
 ---
 
 ## 🎮 How to Play
-1. Click the *Start Game* button or press the *Spacebar*.  
-2. Click on the moles as they appear in the holes.  
-3. Avoid missing too many moles, or you will lose lives.  
-4. Try to get the *highest score* before the timer runs out!  
+1. Click the *Start Game* button or press the *Spacebar*.
+2. Select a theme from the dropdown to change the background and style. 
+3. Click on the moles as they appear in the holes.  
+4. Avoid missing too many moles, or you will lose lives.  
+5. Try to get the *highest score* before the timer runs out!  
 
 ---
 
@@ -35,7 +40,6 @@ Play the game here: https://simran-dhyani.github.io/mini-project-/
 ## 🔧 Future Enhancements
 - Add a *computer/AI opponent*  
 - Track *global play counts* using Firebase  
-- Add *sound effects* for a more engaging experience  
 - Implement *leaderboards* to compare scores  
 
 ---
@@ -43,7 +47,7 @@ Play the game here: https://simran-dhyani.github.io/mini-project-/
 ## 👩‍💻 Technologies Used
 - HTML5  
 - CSS3 (including gradients, shadows, and animations)  
-- JavaScript (DOM manipulation, timers, event listeners)  
+- JavaScript (DOM manipulation, timers, event listeners,audio control)  
 
 ---
 
