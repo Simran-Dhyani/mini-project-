@@ -136,4 +136,3 @@ function updateDisplay() {
  moles.forEach(mole => {
             mole.addEventListener('click', () => hitMole(mole));
      });
-
