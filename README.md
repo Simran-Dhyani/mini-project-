@@ -33,7 +33,18 @@ Play the game here: https://simran-dhyani.github.io/mini-project-/
 ---
 
 ## 🗂 Project Structure
-/ (root folder) ├── index.html      → Main HTML file ├── styles.css      → CSS styling ├── script.js       → JavaScript game logic └── README.md       → Project documentation
+mini-project/
+│
+├── index.html        → Main HTML file
+├── style.css         → CSS styling
+├── script.js         → JavaScript game logic
+├── sounds/           → Audio files (background, click, game-over)
+│   ├── start-music.mp3
+│   ├── game-over.mp3
+│   └── click.mp3
+├── images/           → Screenshots or theme previews
+└── README.md         → Project documentation
+
 
 ---
 
