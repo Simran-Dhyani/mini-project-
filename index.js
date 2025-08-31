@@ -19,9 +19,16 @@ let moleTimeOut;
     medium:{interval:600,duration:1000},
     hard:{interval:200,duration:800}
  }
+ const themeSelect = document.getElementById('themeSelect');
+themeSelect.addEventListener('change', () => {
+  document.body.className = '';
+  document.body.classList.add(themeSelect.value);
+});
+
  const stSound=new Audio('sounds/start-music.mp3');
  stSound.loop=true;
  const overSound=new Audio('sounds/game-over.mp3');
+ const popUpSound=new Audio('sounds/popup-music.mp3');
   
  
 
@@ -90,8 +97,14 @@ function hitMole(mole){
         mole.classList.add('hit');
         score+=10;
         scoreElement.textContent=score;
+        popUpSound.currentTime = 0;
+        popUpSound.play().catch(e => console.log("Hit sound error:", e));
+
         setTimeout(() => {
                 mole.classList.remove('show', 'hit');
+                popUpSound.pause();
+                popUpSound.currentTime=0;
+                popUpMole.play();
             }, 300);
      }
     
