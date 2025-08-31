@@ -15,28 +15,19 @@ let moleTimeOut;
  const gameOverModal = document.getElementById('gameOver');
  const finalScoreElement = document.getElementById('finalScore');
  const difficulties={
-    easy:{interval:1200,duration:1800},
-    medium:{interval:400,duration:800},
-    hard:{interval:200,duration:500}
+    easy:{interval:1000,duration:2000},
+    medium:{interval:600,duration:1000},
+    hard:{interval:200,duration:800}
  }
-const stSound = document.getElementById('startAudio');
-const overSound = document.getElementById('gameOverAudio');
+ const stSound=new Audio('sounds/start-music.mp3');
+ stSound.loop=true;
+ const overSound=new Audio('sounds/game-over.mp3');
+  
+ 
 
-// Only play sounds on real user gestures
-startBtn.addEventListener('click', () => {
-    stSound.currentTime = 0;
-    stSound.play().catch(e => console.log("Mobile audio blocked", e));
-    StartGame(true);
-});
 
-document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && !isGameActive) {
-        e.preventDefault();
-        stSound.currentTime = 0;
-        stSound.play().catch(e => console.log("Mobile audio blocked", e));
-        StartGame(true);
-    }
-});
+
+
  
 function StartGame(triggeredByUser=true){
     if(isGameActive==true) return ;
@@ -136,3 +127,16 @@ function updateDisplay() {
  moles.forEach(mole => {
             mole.addEventListener('click', () => hitMole(mole));
      });
+
+startBtn.addEventListener('click', () => StartGame(true));
+
+        
+ document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && !isGameActive) {
+                e.preventDefault();
+                StartGame(true);
+            }
+    });
+
+
+    
